@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      body::before {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 55vw;
+        height: 55vw;
+        background-color: #edf0fc;
+        border-radius: 100%;
+        z-index: -2;
+        filter: blur(30px);
+        right: 250px;
+        bottom: 0;
+        top: 300px;
+      }
+      body::after {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 45vw;
+        height: 45vw;
+        background-color: #dce2f5;
+        border-radius: 100%;
+        z-index: -1;
+        filter: blur(60px);
+        right: 0;
+        bottom: 0;
+      }
+
+      .gaussian::after {
+        content: "";
+        width: 200px;
+        height: 200px;
+        background-color: #dce2f5;
+        display: block;
+        position: absolute;
+        border-radius: 100%;
+        filter: blur(60px);
+      }
+
+      aside::-webkit-scrollbar {
+        width: 5px;
+      }
+
+      aside::-webkit-scrollbar-track {
+        background-color: transparent !important;
+      }
+      aside::-webkit-scrollbar-thumb {
+        background: #bbbb;
+        border: 10px;
+      }
+
+      /* .card-content-end svg circle:nth-child(1) {
+        fill: none !important;
+        stroke-width: 7px;
+        stroke-dasharray: 310;
+        stroke-dashoffset: 0;
+        opacity: 0.3;
+      }
+
+      .card-content-end svg circle:nth-child(2) {
+        fill: none !important;
+        stroke-width: 7px;
+        stroke-dasharray: 310;
+      } */
+    </style>
+    <title>Dashboard | Considr</title>
+  </head>
+  <body style="background-color: #f5f9fc">
+    <div class="gaussian">
+      <!-- Side Menu Left -->
+      <aside
+        class="
+          bg-white bg-opacity-50
+          backdrop-filter backdrop-blur-md
+          z-10
+          h-screen
+          fixed
+          overflow-y-auto
+          border-r-2 border-white border-opacity-40
+          w-64
+        "
+      >
+        <div class="logo-section p-10">
+          <img src="./img/logo-considr.png" alt="Considr" />
+        </div>
+        <div class="side-menu-section mx-4">
+          <ul>
+            <li class="flex items-center rounded-xl py-4 px-6 cursor-pointer">
+              <img
+                src="./img/icon-dashboard.png"
+                style="width: 20px; height: 20px"
+              />
+              <span class="text-lg ml-4 text-blue-800">Dashboard</span>
+            </li>
+            <li class="flex items-center py-4 px-6 cursor-pointer">
+              <img src="./img/icon-projects.png" style="width: 20px" />
+              <span class="flex justify-between items-center w-full">
+                <span class="text-lg ml-4 text-gray-700">Projects</span>
+                <span
+                  class="
+                    bg-red-500
+                    text-white
+                    font-bold
+                    text-xs
+                    p-0.5
+                    rounded-full
+                  "
+                  >16</span
+                >
+              </span>
+            </li>
+            <li class="flex items-center py-4 px-6 cursor-pointer">
+              <img src="./img/icon-battlecards.png" style="width: 20px" />
+              <span class="flex justify-between items-center w-full">
+                <span class="text-lg ml-4 text-gray-700">Battlecards</span>
+                <span
+                  class="
+                    bg-red-500
+                    text-white
+                    font-bold
+                    text-xs
+                    p-0.5
+                    rounded-full
+                  "
+                  >28</span
+                >
+              </span>
+            </li>
+            <li class="flex items-center py-4 px-6 cursor-pointer">
+              <img src="./img/icon-messages.png" style="width: 20px" />
+              <span class="flex justify-between items-center w-full">
+                <span class="text-lg ml-4 text-gray-700">Messages</span>
+                <span
+                  class="
+                    bg-red-500
+                    text-white
+                    font-bold
+                    text-xs
+                    p-0.5
+                    rounded-full
+                  "
+                  >69</span
+                >
+              </span>
+            </li>
+            <li class="flex items-center rounded-xl py-4 px-6 cursor-pointer">
+              <img
+                src="./img/icon-teams.png"
+                style="width: 20px; height: 20px"
+              />
+              <span class="text-lg ml-4 text-gray-500">Teams</span>
+            </li>
+            <li class="flex items-center rounded-xl py-4 px-6 cursor-pointer">
+              <img
+                src="./img/icon-news.png"
+                style="width: 20px; height: 20px"
+              />
+              <span class="text-lg ml-4 text-gray-500">News</span>
+            </li>
+            <li class="flex items-center rounded-xl py-4 px-6 cursor-pointer">
+              <img
+                src="./img/icon-account.png"
+                style="width: 20px; height: 20px"
+              />
+              <span class="text-lg ml-4 text-gray-500">Account</span>
+            </li>
+          </ul>
+          <ul class="absolute bottom-0">
+            <li class="flex items-center rounded-xl py-4 px-6 cursor-pointer">
+              <img
+                src="./img/icon-help.png"
+                style="width: 20px; height: 20px"
+              />
+              <span class="text-lg ml-4 text-gray-500">Help</span>
+            </li>
+            <li
+              class="
+                flex
+                items-center
+                rounded-xl
+                py-4
+                mb-10
+                px-6
+                cursor-pointer
+              "
+            >
+              <img
+                src="./img/icon-logout.png"
+                style="width: 20px; height: 20px"
+              />
+              <span class="text-lg ml-4 text-gray-500">Log out</span>
+            </li>
+          </ul>
+        </div>
+      </aside>
+      <!-- End Side Menu Left -->
+      <main class="ml-64">
+        <nav class="p-10">
+          <span class="flex gap-5 justify-end items-center">
+            <span
+              class="
+                bg-white
+                inline-block
+                w-10
+                h-10
+                rounded-xl
+                flex
+                justify-center
+                items-center
+                cursor-pointer
+              "
+            >
+              <img src="./img/icon-notification.png" alt="" />
+              <span
+                class="
+                  absolute
+                  bg-red-500
+                  text-white
+                  font-bold
+                  rounded-full
+                  w-5
+                  h-5
+                  flex
+                  justify-center
+                  items-center
+                  transform
+                  -translate-y-2
+                  translate-x-2
+                "
+                >4</span
+              >
+            </span>
+            <span
+              class="
+                bg-white
+                inline-block
+                w-10
+                h-10
+                rounded-xl
+                flex
+                justify-center
+                items-center
+                cursor-pointer
+              "
+            ></span>
+            <span class="capitalize font-bold cursor-default">acme, inc</span>
+          </span>
+        </nav>
+        <!-- Search -->
+        <div class="form-search px-10">
+          <form action="">
+            <!-- form group -->
+            <div class="form-group flex gap-4 justify-between items-center">
+              <!-- search -->
+              <div
+                class="
+                  form-group-search
+                  flex
+                  items-center
+                  bg-white
+                  p-3
+                  rounded-xl
+                  w-10/12
+                "
+              >
+                <img src="./img/icon-search.png" alt="" />
+                <input
+                  class="ml-5 outline-none w-full"
+                  type="text"
+                  placeholder="Find Answers ..."
+                />
+              </div>
+              <!-- end search -->
+              <!-- filter -->
+              <div
+                class="
+                  form-group-filter
+                  flex
+                  items-center
+                  bg-white
+                  p-3
+                  rounded-xl
+                  cursor-pointer
+                "
+              >
+                <img src="./img/icon-filter.png" alt="" />
+              </div>
+              <!-- end filter -->
+              <!-- category dropdown -->
+              <div
+                class="
+                  form-group-category
+                  flex
+                  justify-around
+                  items-center
+                  bg-white
+                  p-3
+                  rounded-xl
+                  w-40
+                  cursor-pointer
+                "
+              >
+                <span>Category</span>
+                <img src="./img/icon-polygon.png" alt="" />
+              </div>
+              <!-- end category dropdown -->
+            </div>
+            <!-- end form group -->
+          </form>
+        </div>
+        <!-- End Search -->
+        <div class="p-10 grid grid-cols-4 gap-4">
+          <div class="main-content col-span-3">
+            <!-- Battlecards Section -->
+            <section>
+              <h1 class="text-2xl font-bold text-gray-700 mb-5">Battlecards</h1>
+              <div class="cards flex flex-wrap gap-5">
+                <!-- Card 1 -->
+                <div
+                  class="
+                    card
+                    bg-white
+                    w-52
+                    2xl:w-64
+                    p-5
+                    rounded-2xl
+                    shadow-2xl
+                    cursor-pointer
+                    hover:shadow-md
+                    transition-all
+                  "
+                >
+                  <div class="card-header flex justify-between items-start">
+                    <div
+                      class="
+                        card-battlecards-profile
+                        bg-white
+                        shadow-xl
+                        w-24
+                        h-24
+                        rounded-2xl
+                        flex
+                        justify-center
+                        items-center
+                        border-t-1 border-opacity-20
+                      "
+                    >
+                      <img class="w-20" src="./img/img-aws.png" alt="" />
+                    </div>
+                    <img class="w-3 h-3" src="./img/icon-close.svg" alt="" />
+                  </div>
+                  <div class="card-body">
+                    <h2
+                      class="
+                        text-md
+                        font-bold
+                        capitalize
+                        text-gray-700
+                        pt-10
+                        pb-3
+                      "
+                    >
+                      amazon web services
+                    </h2>
+                    <span
+                      class="
+                        card-battlecards-notification
+                        flex
+                        items-center
+                        pb-2
+                      "
+                    >
+                      <span class="text-2xl font-bold text-yellow-500 mr-2"
+                        >146</span
+                      >
+                      <svg
+                        class="transform -translate-y-2"
+                        width="25"
+                        height="25"
+                        viewBox="0 0 20 20"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g clip-path="url(#clip0_5_3922)">
+                          <path
+                            d="M9.88984 18.8538C10.2281 18.846 10.5527 18.7188 10.8063 18.4947C11.0598 18.2707 11.226 17.9641 11.2753 17.6294H8.45068C8.50142 17.9732 8.67532 18.287 8.94005 18.5122C9.20478 18.7374 9.54231 18.8588 9.88984 18.8538Z"
+                            fill="#F68903"
+                            fill-opacity="0.2"
+                          />
+                          <path
+                            d="M17.8644 15.5515L17.6818 15.3904C17.1639 14.9289 16.7105 14.3997 16.334 13.817C15.9227 13.0129 15.6763 12.1347 15.609 11.2341V8.58129C15.6068 8.25907 15.5781 7.93757 15.5231 7.62006C14.6135 7.4331 13.7964 6.93755 13.2102 6.2173C12.6241 5.49706 12.3048 4.59638 12.3065 3.66775V3.32944C11.7458 3.05352 11.1434 2.87208 10.5236 2.79244V2.11582C10.5236 1.92569 10.4481 1.74334 10.3136 1.6089C10.1792 1.47446 9.99686 1.39893 9.80672 1.39893C9.61659 1.39893 9.43425 1.47446 9.2998 1.6089C9.16536 1.74334 9.08983 1.92569 9.08983 2.11582V2.81929C7.70207 3.01505 6.43199 3.70627 5.51407 4.76534C4.59615 5.8244 4.09237 7.1798 4.09573 8.58129V11.2341C4.02848 12.1347 3.78201 13.0129 3.37079 13.817C3.00073 14.3983 2.55465 14.9274 2.0444 15.3904L1.86182 15.5515V17.0659H17.8644V15.5515Z"
+                            fill="#F68903"
+                            fill-opacity="0.2"
+                          />
+                          <path
+                            d="M16.3334 6.35242C17.8163 6.35242 19.0184 5.1503 19.0184 3.66742C19.0184 2.18454 17.8163 0.982422 16.3334 0.982422C14.8506 0.982422 13.6484 2.18454 13.6484 3.66742C13.6484 5.1503 14.8506 6.35242 16.3334 6.35242Z"
+                            fill="#F68903"
+                          />
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_5_3922">
+                            <rect
+                              width="19.332"
+                              height="19.332"
+                              fill="white"
+                              transform="translate(0.223633 0.445801)"
+                            />
+                          </clipPath>
+                        </defs>
+                      </svg>
+                    </span>
+                    <span class="text-sm text-gray-400">846 Score</span>
+                  </div>
+                  <div class="card-footer mt-5">
+                    <div class="flex items-center justify-end gap-3">
+                      <span class="text-mdz text-gray-400">Connect</span>
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g clip-path="url(#clip0_5_3911)">
+                          <path
+                            d="M7.62406 2.26403L7.98245 2.63244L8.34084 2.26403C10.0843 0.47191 13.204 1.11805 14.3243 3.3058C14.8679 4.36739 14.955 5.844 14.0406 7.64795C13.1446 9.41578 11.2879 11.4877 7.98244 13.7163C4.67703 11.488 2.82032 9.41611 1.92428 7.64833C1.00993 5.84443 1.097 4.36778 1.64061 3.30613C2.76092 1.11823 5.88068 0.471948 7.62406 2.26403Z"
+                            stroke="#BDBDBD"
+                          />
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_5_3911">
+                            <rect
+                              width="14.499"
+                              height="14.499"
+                              fill="white"
+                              transform="translate(0.73291 0.724609)"
+                            />
+                          </clipPath>
+                        </defs>
+                      </svg>
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 14 15"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M0.10376 2.85241C0.10376 2.33613 0.308853 1.84099 0.673921 1.47592C1.03899 1.11085 1.53413 0.905762 2.05041 0.905762H11.7837C12.3 0.905762 12.7951 1.11085 13.1602 1.47592C13.5252 1.84099 13.7303 2.33613 13.7303 2.85241V12.5857C13.7303 13.102 13.5252 13.5971 13.1602 13.9622C12.7951 14.3272 12.3 14.5323 11.7837 14.5323H2.05041C1.53413 14.5323 1.03899 14.3272 0.673921 13.9622C0.308853 13.5971 0.10376 13.102 0.10376 12.5857V2.85241ZM2.05041 1.87909C1.79227 1.87909 1.5447 1.98164 1.36217 2.16417C1.17963 2.3467 1.07709 2.59427 1.07709 2.85241V12.5857C1.07709 12.8438 1.17963 13.0914 1.36217 13.2739C1.5447 13.4565 1.79227 13.559 2.05041 13.559H11.7837C12.0418 13.559 12.2894 13.4565 12.4719 13.2739C12.6545 13.0914 12.757 12.8438 12.757 12.5857V2.85241C12.757 2.59427 12.6545 2.3467 12.4719 2.16417C12.2894 1.98164 12.0418 1.87909 11.7837 1.87909H2.05041ZM6.91705 3.82574C7.04612 3.82574 7.1699 3.87701 7.26117 3.96828C7.35244 4.05955 7.40371 4.18333 7.40371 4.3124V7.23238H10.3237C10.4528 7.23238 10.5765 7.28366 10.6678 7.37492C10.7591 7.46619 10.8104 7.58998 10.8104 7.71905C10.8104 7.84812 10.7591 7.9719 10.6678 8.06317C10.5765 8.15444 10.4528 8.20571 10.3237 8.20571H7.40371V11.1257C7.40371 11.2548 7.35244 11.3785 7.26117 11.4698C7.1699 11.5611 7.04612 11.6124 6.91705 11.6124C6.78797 11.6124 6.66419 11.5611 6.57292 11.4698C6.48165 11.3785 6.43038 11.2548 6.43038 11.1257V8.20571H3.5104C3.38133 8.20571 3.25755 8.15444 3.16628 8.06317C3.07501 7.9719 3.02374 7.84812 3.02374 7.71905C3.02374 7.58998 3.07501 7.46619 3.16628 7.37492C3.25755 7.28366 3.38133 7.23238 3.5104 7.23238H6.43038V4.3124C6.43038 4.18333 6.48165 4.05955 6.57292 3.96828C6.66419 3.87701 6.78797 3.82574 6.91705 3.82574Z"
+                          fill="#BDBDBD"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <!-- Card 2 -->
+                <div
+                  class="
+                    card
+                    bg-white
+                    w-52
+                    2xl:w-64
+                    p-5
+                    rounded-2xl
+                    shadow-2xl
+                    cursor-pointer
+                    hover:shadow-md
+                    transition-all
+                  "
+                >
+                  <div class="card-header flex justify-between items-start">
+                    <div
+                      class="
+                        card-battlecards-profile
+                        bg-white
+                        shadow-xl
+                        w-24
+                        h-24
+                        rounded-2xl
+                        flex
+                        justify-center
+                        items-center
+                        border-t-1 border-opacity-20
+                      "
+                    >
+                      <img class="w-20" src="./img/img-aws.png" alt="" />
+                    </div>
+                    <img class="w-3 h-3" src="./img/icon-close.svg" alt="" />
+                  </div>
+                  <div class="card-body">
+                    <h2
+                      class="
+                        text-md
+                        font-bold
+                        capitalize
+                        text-gray-700
+                        pt-10
+                        pb-3
+                      "
+                    >
+                      azure cloud
+                    </h2>
+                    <span
+                      class="
+                        card-battlecards-notification
+                        flex
+                        items-center
+                        pb-2
+                      "
+                    >
+                      <span class="text-2xl font-bold text-blue-400">45</span>
+                      <svg
+                        class="transform -translate-y-2"
+                        width="25"
+                        height="25"
+                        viewBox="0 0 20 20"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g clip-path="url(#clip0_5_3922)">
+                          <path
+                            d="M9.88984 18.8538C10.2281 18.846 10.5527 18.7188 10.8063 18.4947C11.0598 18.2707 11.226 17.9641 11.2753 17.6294H8.45068C8.50142 17.9732 8.67532 18.287 8.94005 18.5122C9.20478 18.7374 9.54231 18.8588 9.88984 18.8538Z"
+                            fill="#0089D6"
+                            fill-opacity="0.2"
+                          />
+                          <path
+                            d="M17.8644 15.5515L17.6818 15.3904C17.1639 14.9289 16.7105 14.3997 16.334 13.817C15.9227 13.0129 15.6763 12.1347 15.609 11.2341V8.58129C15.6068 8.25907 15.5781 7.93757 15.5231 7.62006C14.6135 7.4331 13.7964 6.93755 13.2102 6.2173C12.6241 5.49706 12.3048 4.59638 12.3065 3.66775V3.32944C11.7458 3.05352 11.1434 2.87208 10.5236 2.79244V2.11582C10.5236 1.92569 10.4481 1.74334 10.3136 1.6089C10.1792 1.47446 9.99686 1.39893 9.80672 1.39893C9.61659 1.39893 9.43425 1.47446 9.2998 1.6089C9.16536 1.74334 9.08983 1.92569 9.08983 2.11582V2.81929C7.70207 3.01505 6.43199 3.70627 5.51407 4.76534C4.59615 5.8244 4.09237 7.1798 4.09573 8.58129V11.2341C4.02848 12.1347 3.78201 13.0129 3.37079 13.817C3.00073 14.3983 2.55465 14.9274 2.0444 15.3904L1.86182 15.5515V17.0659H17.8644V15.5515Z"
+                            fill="#0089D6"
+                            fill-opacity="0.2"
+                          />
+                          <path
+                            d="M16.3334 6.35242C17.8163 6.35242 19.0184 5.1503 19.0184 3.66742C19.0184 2.18454 17.8163 0.982422 16.3334 0.982422C14.8506 0.982422 13.6484 2.18454 13.6484 3.66742C13.6484 5.1503 14.8506 6.35242 16.3334 6.35242Z"
+                            fill="#0089D6"
+                          />
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_5_3922">
+                            <rect
+                              width="19.332"
+                              height="19.332"
+                              fill="white"
+                              transform="translate(0.223633 0.445801)"
+                            />
+                          </clipPath>
+                        </defs>
+                      </svg>
+                    </span>
+                    <span class="text-sm text-gray-400">846 Score</span>
+                  </div>
+                  <div class="card-footer mt-5">
+                    <div class="flex items-center justify-end gap-3">
+                      <span class="text-md text-gray-400">Connect</span>
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g clip-path="url(#clip0_5_3911)">
+                          <path
+                            d="M7.62406 2.26403L7.98245 2.63244L8.34084 2.26403C10.0843 0.47191 13.204 1.11805 14.3243 3.3058C14.8679 4.36739 14.955 5.844 14.0406 7.64795C13.1446 9.41578 11.2879 11.4877 7.98244 13.7163C4.67703 11.488 2.82032 9.41611 1.92428 7.64833C1.00993 5.84443 1.097 4.36778 1.64061 3.30613C2.76092 1.11823 5.88068 0.471948 7.62406 2.26403Z"
+                            stroke="#BDBDBD"
+                          />
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_5_3911">
+                            <rect
+                              width="14.499"
+                              height="14.499"
+                              fill="white"
+                              transform="translate(0.73291 0.724609)"
+                            />
+                          </clipPath>
+                        </defs>
+                      </svg>
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 14 15"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M0.10376 2.85241C0.10376 2.33613 0.308853 1.84099 0.673921 1.47592C1.03899 1.11085 1.53413 0.905762 2.05041 0.905762H11.7837C12.3 0.905762 12.7951 1.11085 13.1602 1.47592C13.5252 1.84099 13.7303 2.33613 13.7303 2.85241V12.5857C13.7303 13.102 13.5252 13.5971 13.1602 13.9622C12.7951 14.3272 12.3 14.5323 11.7837 14.5323H2.05041C1.53413 14.5323 1.03899 14.3272 0.673921 13.9622C0.308853 13.5971 0.10376 13.102 0.10376 12.5857V2.85241ZM2.05041 1.87909C1.79227 1.87909 1.5447 1.98164 1.36217 2.16417C1.17963 2.3467 1.07709 2.59427 1.07709 2.85241V12.5857C1.07709 12.8438 1.17963 13.0914 1.36217 13.2739C1.5447 13.4565 1.79227 13.559 2.05041 13.559H11.7837C12.0418 13.559 12.2894 13.4565 12.4719 13.2739C12.6545 13.0914 12.757 12.8438 12.757 12.5857V2.85241C12.757 2.59427 12.6545 2.3467 12.4719 2.16417C12.2894 1.98164 12.0418 1.87909 11.7837 1.87909H2.05041ZM6.91705 3.82574C7.04612 3.82574 7.1699 3.87701 7.26117 3.96828C7.35244 4.05955 7.40371 4.18333 7.40371 4.3124V7.23238H10.3237C10.4528 7.23238 10.5765 7.28366 10.6678 7.37492C10.7591 7.46619 10.8104 7.58998 10.8104 7.71905C10.8104 7.84812 10.7591 7.9719 10.6678 8.06317C10.5765 8.15444 10.4528 8.20571 10.3237 8.20571H7.40371V11.1257C7.40371 11.2548 7.35244 11.3785 7.26117 11.4698C7.1699 11.5611 7.04612 11.6124 6.91705 11.6124C6.78797 11.6124 6.66419 11.5611 6.57292 11.4698C6.48165 11.3785 6.43038 11.2548 6.43038 11.1257V8.20571H3.5104C3.38133 8.20571 3.25755 8.15444 3.16628 8.06317C3.07501 7.9719 3.02374 7.84812 3.02374 7.71905C3.02374 7.58998 3.07501 7.46619 3.16628 7.37492C3.25755 7.28366 3.38133 7.23238 3.5104 7.23238H6.43038V4.3124C6.43038 4.18333 6.48165 4.05955 6.57292 3.96828C6.66419 3.87701 6.78797 3.82574 6.91705 3.82574Z"
+                          fill="#BDBDBD"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <!-- Card 3 -->
+                <div
+                  class="
+                    card
+                    bg-white
+                    w-52
+                    2xl:w-64
+                    p-5
+                    rounded-2xl
+                    shadow-2xl
+                    cursor-pointer
+                    hover:shadow-md
+                    transition-all
+                  "
+                >
+                  <div class="card-header flex justify-between items-start">
+                    <div
+                      class="
+                        card-battlecards-profile
+                        bg-white
+                        shadow-xl
+                        w-24
+                        h-24
+                        rounded-2xl
+                        flex
+                        justify-center
+                        items-center
+                        border-t-1 border-opacity-20
+                      "
+                    >
+                      <img class="w-20" src="./img/img-aws.png" alt="" />
+                    </div>
+                    <img class="w-3 h-3" src="./img/icon-close.svg" alt="" />
+                  </div>
+                  <div class="card-body">
+                    <h2
+                      class="
+                        text-md
+                        font-bold
+                        capitalize
+                        text-gray-700
+                        pt-10
+                        pb-3
+                      "
+                    >
+                      google cloud platform
+                    </h2>
+                    <span
+                      class="
+                        card-battlecards-notification
+                        flex
+                        items-center
+                        pb-2
+                      "
+                    >
+                      <span class="text-2xl font-bold text-red-400">24</span>
+                      <svg
+                        class="transform -translate-y-2"
+                        width="30"
+                        height="30"
+                        viewBox="0 0 20 20"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g clip-path="url(#clip0_5_3922)">
+                          <path
+                            d="M9.88984 18.8538C10.2281 18.846 10.5527 18.7188 10.8063 18.4947C11.0598 18.2707 11.226 17.9641 11.2753 17.6294H8.45068C8.50142 17.9732 8.67532 18.287 8.94005 18.5122C9.20478 18.7374 9.54231 18.8588 9.88984 18.8538Z"
+                            fill="#DD2C00"
+                            fill-opacity="0.2"
+                          />
+                          <path
+                            d="M17.8644 15.5515L17.6818 15.3904C17.1639 14.9289 16.7105 14.3997 16.334 13.817C15.9227 13.0129 15.6763 12.1347 15.609 11.2341V8.58129C15.6068 8.25907 15.5781 7.93757 15.5231 7.62006C14.6135 7.4331 13.7964 6.93755 13.2102 6.2173C12.6241 5.49706 12.3048 4.59638 12.3065 3.66775V3.32944C11.7458 3.05352 11.1434 2.87208 10.5236 2.79244V2.11582C10.5236 1.92569 10.4481 1.74334 10.3136 1.6089C10.1792 1.47446 9.99686 1.39893 9.80672 1.39893C9.61659 1.39893 9.43425 1.47446 9.2998 1.6089C9.16536 1.74334 9.08983 1.92569 9.08983 2.11582V2.81929C7.70207 3.01505 6.43199 3.70627 5.51407 4.76534C4.59615 5.8244 4.09237 7.1798 4.09573 8.58129V11.2341C4.02848 12.1347 3.78201 13.0129 3.37079 13.817C3.00073 14.3983 2.55465 14.9274 2.0444 15.3904L1.86182 15.5515V17.0659H17.8644V15.5515Z"
+                            fill="#DD2C00"
+                            fill-opacity="0.2"
+                          />
+                          <path
+                            d="M16.3334 6.35242C17.8163 6.35242 19.0184 5.1503 19.0184 3.66742C19.0184 2.18454 17.8163 0.982422 16.3334 0.982422C14.8506 0.982422 13.6484 2.18454 13.6484 3.66742C13.6484 5.1503 14.8506 6.35242 16.3334 6.35242Z"
+                            fill="#DD2C00"
+                          />
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_5_3922">
+                            <rect
+                              width="19.332"
+                              height="19.332"
+                              fill="white"
+                              transform="translate(0.223633 0.445801)"
+                            />
+                          </clipPath>
+                        </defs>
+                      </svg>
+                    </span>
+                    <span class="text-sm text-gray-400">846 Score</span>
+                  </div>
+                  <div class="card-footer mt-5">
+                    <div class="flex items-center justify-end gap-3">
+                      <span class="text-md text-gray-400">Connect</span>
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g clip-path="url(#clip0_5_3911)">
+                          <path
+                            d="M7.62406 2.26403L7.98245 2.63244L8.34084 2.26403C10.0843 0.47191 13.204 1.11805 14.3243 3.3058C14.8679 4.36739 14.955 5.844 14.0406 7.64795C13.1446 9.41578 11.2879 11.4877 7.98244 13.7163C4.67703 11.488 2.82032 9.41611 1.92428 7.64833C1.00993 5.84443 1.097 4.36778 1.64061 3.30613C2.76092 1.11823 5.88068 0.471948 7.62406 2.26403Z"
+                            stroke="#BDBDBD"
+                          />
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_5_3911">
+                            <rect
+                              width="14.499"
+                              height="14.499"
+                              fill="white"
+                              transform="translate(0.73291 0.724609)"
+                            />
+                          </clipPath>
+                        </defs>
+                      </svg>
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 14 15"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M0.10376 2.85241C0.10376 2.33613 0.308853 1.84099 0.673921 1.47592C1.03899 1.11085 1.53413 0.905762 2.05041 0.905762H11.7837C12.3 0.905762 12.7951 1.11085 13.1602 1.47592C13.5252 1.84099 13.7303 2.33613 13.7303 2.85241V12.5857C13.7303 13.102 13.5252 13.5971 13.1602 13.9622C12.7951 14.3272 12.3 14.5323 11.7837 14.5323H2.05041C1.53413 14.5323 1.03899 14.3272 0.673921 13.9622C0.308853 13.5971 0.10376 13.102 0.10376 12.5857V2.85241ZM2.05041 1.87909C1.79227 1.87909 1.5447 1.98164 1.36217 2.16417C1.17963 2.3467 1.07709 2.59427 1.07709 2.85241V12.5857C1.07709 12.8438 1.17963 13.0914 1.36217 13.2739C1.5447 13.4565 1.79227 13.559 2.05041 13.559H11.7837C12.0418 13.559 12.2894 13.4565 12.4719 13.2739C12.6545 13.0914 12.757 12.8438 12.757 12.5857V2.85241C12.757 2.59427 12.6545 2.3467 12.4719 2.16417C12.2894 1.98164 12.0418 1.87909 11.7837 1.87909H2.05041ZM6.91705 3.82574C7.04612 3.82574 7.1699 3.87701 7.26117 3.96828C7.35244 4.05955 7.40371 4.18333 7.40371 4.3124V7.23238H10.3237C10.4528 7.23238 10.5765 7.28366 10.6678 7.37492C10.7591 7.46619 10.8104 7.58998 10.8104 7.71905C10.8104 7.84812 10.7591 7.9719 10.6678 8.06317C10.5765 8.15444 10.4528 8.20571 10.3237 8.20571H7.40371V11.1257C7.40371 11.2548 7.35244 11.3785 7.26117 11.4698C7.1699 11.5611 7.04612 11.6124 6.91705 11.6124C6.78797 11.6124 6.66419 11.5611 6.57292 11.4698C6.48165 11.3785 6.43038 11.2548 6.43038 11.1257V8.20571H3.5104C3.38133 8.20571 3.25755 8.15444 3.16628 8.06317C3.07501 7.9719 3.02374 7.84812 3.02374 7.71905C3.02374 7.58998 3.07501 7.46619 3.16628 7.37492C3.25755 7.28366 3.38133 7.23238 3.5104 7.23238H6.43038V4.3124C6.43038 4.18333 6.48165 4.05955 6.57292 3.96828C6.66419 3.87701 6.78797 3.82574 6.91705 3.82574Z"
+                          fill="#BDBDBD"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <!-- End Battlecards Section -->
+            <!-- Projects Section -->
+            <section>
+              <h1 class="text-2xl font-bold text-gray-700 mb-5 mt-16">
+                Projects
+              </h1>
+              <div class="cards flex flex-wrap gap-5">
+                <!-- Card Projects 1 -->
+                <div
+                  class="
+                    card
+                    p-5
+                    bg-white
+                    w-1/2
+                    md:w-80
+                    2xl:w-96
+                    rounded-2xl
+                    shadow-2xl
+                  "
+                >
+                  <div class="card-body flex">
+                    <div class="card-content-start col-span-2">
+                      <h2 class="text-gray-600 font-bold text-md">
+                        Find container deployment solution
+                      </h2>
+                      <div class="flex justify-between my-3 pr-5">
+                        <span class="text-center">
+                          <h3 class="text-gray-400 text-sm mr-2">
+                            Battlecards
+                          </h3>
+                          <span class="text-lg font-bold text-blue-500">8</span>
+                        </span>
+                        <span class="text-center">
+                          <h3 class="text-gray-400 text-sm">Notifications</h3>
+                          <span class="text-lg font-bold text-blue-500"
+                            >10</span
+                          >
+                        </span>
+                      </div>
+                    </div>
+                    <div
+                      class="
+                        card-content-end
+                        col-span-1
+                        flex
+                        justify-center
+                        items-center
+                      "
+                    >
+                      <svg class="progress-ring" width="120" height="120">
+                        <circle
+                          class="
+                            progress-ring__circle
+                            stroke-current
+                            text-blue-500
+                            opacity-25
+                          "
+                          stroke-width="5"
+                          stroke-dashoffset="0"
+                          stroke-dasharray="314.1592653589793"
+                          fill="transparent"
+                          r="45"
+                          cx="60"
+                          cy="60"
+                        />
+                        <circle
+                          class="
+                            progress-ring__circle
+                            stroke-current
+                            text-blue-500
+                          "
+                          stroke-width="5"
+                          stroke-dashoffset="50"
+                          stroke-dasharray="314.1592653589793"
+                          fill="transparent"
+                          r="45"
+                          cx="60"
+                          cy="60"
+                        />
+                      </svg>
+                      <span class="absolute text-lg text-blue-500 font-bold"
+                        >80%</span
+                      >
+                    </div>
+                  </div>
+                  <div class="card-footer">
+                    <ul class="flex gap-4">
+                      <li class="flex items-center gap-2 cursor-pointer">
+                        <svg
+                          width="15"
+                          height="15"
+                          viewBox="0 0 15 15"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M12.5718 1.75098H2.50928C2.26729 1.75098 2.07178 1.94648 2.07178 2.18848V12.251C2.07178 12.493 2.26729 12.6885 2.50928 12.6885H7.43115C7.49131 12.6885 7.54053 12.6393 7.54053 12.5791V11.8135C7.54053 11.7533 7.49131 11.7041 7.43115 11.7041H3.05615V2.73535H12.0249V7.11035C12.0249 7.17051 12.0741 7.21973 12.1343 7.21973H12.8999C12.9601 7.21973 13.0093 7.17051 13.0093 7.11035V2.18848C13.0093 1.94648 12.8138 1.75098 12.5718 1.75098ZM9.47236 8.41465L10.186 7.70098C10.2005 7.68645 10.2106 7.66815 10.2152 7.64817C10.2197 7.6282 10.2186 7.60733 10.2119 7.58796C10.2052 7.56859 10.1932 7.55149 10.1773 7.53859C10.1614 7.5257 10.1421 7.51754 10.1218 7.51504L7.66904 7.22793C7.59932 7.21973 7.53916 7.27852 7.54736 7.34961L7.83447 9.80234C7.84541 9.89258 7.95615 9.93086 8.02041 9.8666L8.73682 9.1502L12.2396 12.6529C12.2819 12.6953 12.3517 12.6953 12.394 12.6529L12.9737 12.0732C13.0161 12.0309 13.0161 11.9611 12.9737 11.9188L9.47236 8.41465Z"
+                            fill="#4F4F4F"
+                          />
+                        </svg>
+                        <span class="text-gray-500 text-sm">Select</span>
+                      </li>
+                      <li class="flex items-center gap-2 cursor-pointer">
+                        <svg
+                          width="15"
+                          height="15"
+                          viewBox="0 0 15 15"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M6.30159 2.35645H2.8016C2.64689 2.35645 2.49851 2.4179 2.38912 2.5273C2.27972 2.6367 2.21826 2.78507 2.21826 2.93978V6.43978C2.21826 6.59449 2.27972 6.74286 2.38912 6.85226C2.49851 6.96165 2.64689 7.02311 2.8016 7.02311H6.30159C6.4563 7.02311 6.60468 6.96165 6.71407 6.85226C6.82347 6.74286 6.88493 6.59449 6.88493 6.43978V2.93978C6.88493 2.78507 6.82347 2.6367 6.71407 2.5273C6.60468 2.4179 6.4563 2.35645 6.30159 2.35645ZM5.71826 5.85645H3.38493V3.52311H5.71826V5.85645ZM12.1349 2.35645H8.63493C8.48022 2.35645 8.33185 2.4179 8.22245 2.5273C8.11305 2.6367 8.05159 2.78507 8.05159 2.93978V6.43978C8.05159 6.59449 8.11305 6.74286 8.22245 6.85226C8.33185 6.96165 8.48022 7.02311 8.63493 7.02311H12.1349C12.2896 7.02311 12.438 6.96165 12.5474 6.85226C12.6568 6.74286 12.7183 6.59449 12.7183 6.43978V2.93978C12.7183 2.78507 12.6568 2.6367 12.5474 2.5273C12.438 2.4179 12.2896 2.35645 12.1349 2.35645ZM11.5516 5.85645H9.21826V3.52311H11.5516V5.85645ZM6.30159 8.18978H2.8016C2.64689 8.18978 2.49851 8.25124 2.38912 8.36063C2.27972 8.47003 2.21826 8.6184 2.21826 8.77311V12.2731C2.21826 12.4278 2.27972 12.5762 2.38912 12.6856C2.49851 12.795 2.64689 12.8564 2.8016 12.8564H6.30159C6.4563 12.8564 6.60468 12.795 6.71407 12.6856C6.82347 12.5762 6.88493 12.4278 6.88493 12.2731V8.77311C6.88493 8.6184 6.82347 8.47003 6.71407 8.36063C6.60468 8.25124 6.4563 8.18978 6.30159 8.18978ZM5.71826 11.6898H3.38493V9.35645H5.71826V11.6898ZM10.3849 8.18978C9.09809 8.18978 8.05159 9.23628 8.05159 10.5231C8.05159 11.8099 9.09809 12.8564 10.3849 12.8564C11.6718 12.8564 12.7183 11.8099 12.7183 10.5231C12.7183 9.23628 11.6718 8.18978 10.3849 8.18978ZM10.3849 11.6898C9.74151 11.6898 9.21826 11.1665 9.21826 10.5231C9.21826 9.87969 9.74151 9.35645 10.3849 9.35645C11.0283 9.35645 11.5516 9.87969 11.5516 10.5231C11.5516 11.1665 11.0283 11.6898 10.3849 11.6898Z"
+                            fill="#4F4F4F"
+                          />
+                        </svg>
+                        <span class="text-gray-500 text-sm">Agriculture</span>
+                      </li>
+                      <li class="flex items-center gap-2 cursor-pointer">
+                        <svg
+                          width="15"
+                          height="15"
+                          viewBox="0 0 15 15"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M8.49536 3.91064H13.162V5.07731H8.49536V3.91064ZM8.49536 7.11898H13.162V8.28564H8.49536V7.11898ZM8.49536 10.3273H13.162V11.494H8.49536V10.3273ZM1.49536 7.70231C1.49536 9.79064 3.19869 11.494 5.28703 11.494H5.57869V12.6606L7.3287 10.9106L5.57869 9.16064V10.3273H5.28703C3.82869 10.3273 2.66203 9.16064 2.66203 7.70231C2.66203 6.24398 3.82869 5.07731 5.28703 5.07731H7.3287V3.91064H5.28703C3.19869 3.91064 1.49536 5.61398 1.49536 7.70231Z"
+                            fill="#4F4F4F"
+                          />
+                        </svg>
+
+                        <span class="text-gray-500 text-sm">High</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <!-- End Card Projects 1 -->
+                <!-- Card Project 2 -->
+                <div
+                  class="
+                    card
+                    p-5
+                    bg-white
+                    w-1/2
+                    md:w-80
+                    2xl:w-96
+                    rounded-2xl
+                    shadow-2xl
+                  "
+                >
+                  <div class="card-body flex">
+                    <div class="card-content-start col-span-2">
+                      <h2 class="text-gray-600 font-bold text-md">
+                        Find container deployment solution
+                      </h2>
+                      <div class="flex justify-between my-3 pr-5">
+                        <span class="text-center">
+                          <h3 class="text-gray-400 text-sm mr-2">
+                            Battlecards
+                          </h3>
+                          <span class="text-lg font-bold text-red-500">8</span>
+                        </span>
+                        <span class="text-center">
+                          <h3 class="text-gray-400 text-sm">Notifications</h3>
+                          <span class="text-lg font-bold text-red-500">10</span>
+                        </span>
+                      </div>
+                    </div>
+                    <div
+                      class="
+                        card-content-end
+                        col-span-1
+                        flex
+                        justify-center
+                        items-center
+                      "
+                    >
+                      <svg class="progress-ring" width="120" height="120">
+                        <circle
+                          class="
+                            progress-ring__circle
+                            stroke-current
+                            text-red-500
+                            opacity-25
+                          "
+                          stroke-width="5"
+                          stroke-dashoffset="0"
+                          stroke-dasharray="314.1592653589793"
+                          fill="transparent"
+                          r="45"
+                          cx="60"
+                          cy="60"
+                        />
+                        <circle
+                          class="
+                            progress-ring__circle
+                            stroke-current
+                            text-red-500
+                          "
+                          stroke-width="5"
+                          stroke-dashoffset="50"
+                          stroke-dasharray="314.1592653589793"
+                          fill="transparent"
+                          r="45"
+                          cx="60"
+                          cy="60"
+                        />
+                      </svg>
+                      <span class="absolute text-lg text-red-500 font-bold"
+                        >80%</span
+                      >
+                    </div>
+                  </div>
+                  <div class="card-footer">
+                    <ul class="flex gap-4">
+                      <li class="flex items-center gap-2 cursor-pointer">
+                        <svg
+                          width="15"
+                          height="15"
+                          viewBox="0 0 15 15"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M12.5718 1.75098H2.50928C2.26729 1.75098 2.07178 1.94648 2.07178 2.18848V12.251C2.07178 12.493 2.26729 12.6885 2.50928 12.6885H7.43115C7.49131 12.6885 7.54053 12.6393 7.54053 12.5791V11.8135C7.54053 11.7533 7.49131 11.7041 7.43115 11.7041H3.05615V2.73535H12.0249V7.11035C12.0249 7.17051 12.0741 7.21973 12.1343 7.21973H12.8999C12.9601 7.21973 13.0093 7.17051 13.0093 7.11035V2.18848C13.0093 1.94648 12.8138 1.75098 12.5718 1.75098ZM9.47236 8.41465L10.186 7.70098C10.2005 7.68645 10.2106 7.66815 10.2152 7.64817C10.2197 7.6282 10.2186 7.60733 10.2119 7.58796C10.2052 7.56859 10.1932 7.55149 10.1773 7.53859C10.1614 7.5257 10.1421 7.51754 10.1218 7.51504L7.66904 7.22793C7.59932 7.21973 7.53916 7.27852 7.54736 7.34961L7.83447 9.80234C7.84541 9.89258 7.95615 9.93086 8.02041 9.8666L8.73682 9.1502L12.2396 12.6529C12.2819 12.6953 12.3517 12.6953 12.394 12.6529L12.9737 12.0732C13.0161 12.0309 13.0161 11.9611 12.9737 11.9188L9.47236 8.41465Z"
+                            fill="#4F4F4F"
+                          />
+                        </svg>
+                        <span class="text-gray-500 text-sm">Select</span>
+                      </li>
+                      <li class="flex items-center gap-2 cursor-pointer">
+                        <svg
+                          width="15"
+                          height="15"
+                          viewBox="0 0 15 15"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M6.30159 2.35645H2.8016C2.64689 2.35645 2.49851 2.4179 2.38912 2.5273C2.27972 2.6367 2.21826 2.78507 2.21826 2.93978V6.43978C2.21826 6.59449 2.27972 6.74286 2.38912 6.85226C2.49851 6.96165 2.64689 7.02311 2.8016 7.02311H6.30159C6.4563 7.02311 6.60468 6.96165 6.71407 6.85226C6.82347 6.74286 6.88493 6.59449 6.88493 6.43978V2.93978C6.88493 2.78507 6.82347 2.6367 6.71407 2.5273C6.60468 2.4179 6.4563 2.35645 6.30159 2.35645ZM5.71826 5.85645H3.38493V3.52311H5.71826V5.85645ZM12.1349 2.35645H8.63493C8.48022 2.35645 8.33185 2.4179 8.22245 2.5273C8.11305 2.6367 8.05159 2.78507 8.05159 2.93978V6.43978C8.05159 6.59449 8.11305 6.74286 8.22245 6.85226C8.33185 6.96165 8.48022 7.02311 8.63493 7.02311H12.1349C12.2896 7.02311 12.438 6.96165 12.5474 6.85226C12.6568 6.74286 12.7183 6.59449 12.7183 6.43978V2.93978C12.7183 2.78507 12.6568 2.6367 12.5474 2.5273C12.438 2.4179 12.2896 2.35645 12.1349 2.35645ZM11.5516 5.85645H9.21826V3.52311H11.5516V5.85645ZM6.30159 8.18978H2.8016C2.64689 8.18978 2.49851 8.25124 2.38912 8.36063C2.27972 8.47003 2.21826 8.6184 2.21826 8.77311V12.2731C2.21826 12.4278 2.27972 12.5762 2.38912 12.6856C2.49851 12.795 2.64689 12.8564 2.8016 12.8564H6.30159C6.4563 12.8564 6.60468 12.795 6.71407 12.6856C6.82347 12.5762 6.88493 12.4278 6.88493 12.2731V8.77311C6.88493 8.6184 6.82347 8.47003 6.71407 8.36063C6.60468 8.25124 6.4563 8.18978 6.30159 8.18978ZM5.71826 11.6898H3.38493V9.35645H5.71826V11.6898ZM10.3849 8.18978C9.09809 8.18978 8.05159 9.23628 8.05159 10.5231C8.05159 11.8099 9.09809 12.8564 10.3849 12.8564C11.6718 12.8564 12.7183 11.8099 12.7183 10.5231C12.7183 9.23628 11.6718 8.18978 10.3849 8.18978ZM10.3849 11.6898C9.74151 11.6898 9.21826 11.1665 9.21826 10.5231C9.21826 9.87969 9.74151 9.35645 10.3849 9.35645C11.0283 9.35645 11.5516 9.87969 11.5516 10.5231C11.5516 11.1665 11.0283 11.6898 10.3849 11.6898Z"
+                            fill="#4F4F4F"
+                          />
+                        </svg>
+                        <span class="text-gray-500 text-sm">Agriculture</span>
+                      </li>
+                      <li class="flex items-center gap-2 cursor-pointer">
+                        <svg
+                          width="15"
+                          height="15"
+                          viewBox="0 0 15 15"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M8.49536 3.91064H13.162V5.07731H8.49536V3.91064ZM8.49536 7.11898H13.162V8.28564H8.49536V7.11898ZM8.49536 10.3273H13.162V11.494H8.49536V10.3273ZM1.49536 7.70231C1.49536 9.79064 3.19869 11.494 5.28703 11.494H5.57869V12.6606L7.3287 10.9106L5.57869 9.16064V10.3273H5.28703C3.82869 10.3273 2.66203 9.16064 2.66203 7.70231C2.66203 6.24398 3.82869 5.07731 5.28703 5.07731H7.3287V3.91064H5.28703C3.19869 3.91064 1.49536 5.61398 1.49536 7.70231Z"
+                            fill="#4F4F4F"
+                          />
+                        </svg>
+
+                        <span class="text-gray-500 text-sm">High</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <!-- End Card Project 2 -->
+              </div>
+            </section>
+            <!-- End Projects Section -->
+            <!-- FAQ Section -->
+            <section class="mt-16 mb-5">
+              <h1 class="text-2xl font-bold text-gray-700 mb-5 mt-16">FAQ</h1>
+              <ul class="faq-items">
+                <li
+                  class="faq-item bg-white px-5 py-2 rounded-xl shadow-md mb-4"
+                >
+                  <span class="faq-title flex justify-between">
+                    <h3 class="text-md font-bold text-gray-600">
+                      How do I do x ?
+                    </h3>
+                    <svg
+                      width="25"
+                      height="25"
+                      viewBox="0 0 25 25"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M7.66754 15.461C7.76006 15.5537 7.86994 15.6272 7.99092 15.6774C8.11189 15.7276 8.24157 15.7534 8.37254 15.7534C8.50351 15.7534 8.63319 15.7276 8.75417 15.6774C8.87514 15.6272 8.98503 15.5537 9.07754 15.461L12.9575 11.581L16.8375 15.461C17.0245 15.648 17.2781 15.753 17.5425 15.753C17.807 15.753 18.0606 15.648 18.2475 15.461C18.4345 15.274 18.5396 15.0204 18.5396 14.756C18.5396 14.4915 18.4345 14.238 18.2475 14.051L13.6575 9.46097C13.565 9.36827 13.4551 9.29472 13.3342 9.24454C13.2132 9.19436 13.0835 9.16853 12.9525 9.16853C12.8216 9.16853 12.6919 9.19436 12.5709 9.24454C12.4499 9.29472 12.3401 9.36827 12.2475 9.46097L7.65754 14.051C7.27754 14.431 7.27754 15.071 7.66754 15.461Z"
+                        fill="#4F4F4F"
+                      />
+                    </svg>
+                  </span>
+                  <p class="text-sm text-gray-400 border-t-2 mt-2 hidden">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Suscipit hic molestias sint totam quam incidunt pariatur
+                    iste repudiandae ab quisquam?
+                  </p>
+                </li>
+                <li
+                  class="faq-item bg-white px-5 py-2 rounded-xl shadow-md mb-4"
+                >
+                  <span class="faq-title flex justify-between">
+                    <h3 class="text-md font-bold text-gray-600">
+                      Improve my battlecard matches
+                    </h3>
+                    <svg
+                      width="25"
+                      height="25"
+                      viewBox="0 0 25 25"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M7.66754 15.461C7.76006 15.5537 7.86994 15.6272 7.99092 15.6774C8.11189 15.7276 8.24157 15.7534 8.37254 15.7534C8.50351 15.7534 8.63319 15.7276 8.75417 15.6774C8.87514 15.6272 8.98503 15.5537 9.07754 15.461L12.9575 11.581L16.8375 15.461C17.0245 15.648 17.2781 15.753 17.5425 15.753C17.807 15.753 18.0606 15.648 18.2475 15.461C18.4345 15.274 18.5396 15.0204 18.5396 14.756C18.5396 14.4915 18.4345 14.238 18.2475 14.051L13.6575 9.46097C13.565 9.36827 13.4551 9.29472 13.3342 9.24454C13.2132 9.19436 13.0835 9.16853 12.9525 9.16853C12.8216 9.16853 12.6919 9.19436 12.5709 9.24454C12.4499 9.29472 12.3401 9.36827 12.2475 9.46097L7.65754 14.051C7.27754 14.431 7.27754 15.071 7.66754 15.461Z"
+                        fill="#4F4F4F"
+                      />
+                    </svg>
+                  </span>
+                  <p class="text-sm text-gray-400 border-t-2 mt-2 hidden">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Suscipit hic molestias sint totam quam incidunt pariatur
+                    iste repudiandae ab quisquam?
+                  </p>
+                </li>
+                <li
+                  class="faq-item bg-white px-5 py-2 rounded-xl shadow-md mb-4"
+                >
+                  <span class="faq-title flex justify-between">
+                    <h3 class="text-md font-bold text-gray-600">
+                      Tips for success !
+                    </h3>
+                    <svg
+                      width="25"
+                      height="25"
+                      viewBox="0 0 25 25"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M7.66754 15.461C7.76006 15.5537 7.86994 15.6272 7.99092 15.6774C8.11189 15.7276 8.24157 15.7534 8.37254 15.7534C8.50351 15.7534 8.63319 15.7276 8.75417 15.6774C8.87514 15.6272 8.98503 15.5537 9.07754 15.461L12.9575 11.581L16.8375 15.461C17.0245 15.648 17.2781 15.753 17.5425 15.753C17.807 15.753 18.0606 15.648 18.2475 15.461C18.4345 15.274 18.5396 15.0204 18.5396 14.756C18.5396 14.4915 18.4345 14.238 18.2475 14.051L13.6575 9.46097C13.565 9.36827 13.4551 9.29472 13.3342 9.24454C13.2132 9.19436 13.0835 9.16853 12.9525 9.16853C12.8216 9.16853 12.6919 9.19436 12.5709 9.24454C12.4499 9.29472 12.3401 9.36827 12.2475 9.46097L7.65754 14.051C7.27754 14.431 7.27754 15.071 7.66754 15.461Z"
+                        fill="#4F4F4F"
+                      />
+                    </svg>
+                  </span>
+                  <p class="text-sm text-gray-400 border-t-2 mt-2">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Suscipit hic molestias sint totam quam incidunt pariatur
+                    iste repudiandae ab quisquam?
+                  </p>
+                </li>
+                <li
+                  class="faq-item bg-white px-5 py-2 rounded-xl shadow-md mb-4"
+                >
+                  <span class="faq-title flex justify-between">
+                    <h3 class="text-md font-bold text-gray-600">
+                      How do I do x ?
+                    </h3>
+                    <svg
+                      width="25"
+                      height="25"
+                      viewBox="0 0 25 25"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M7.66754 15.461C7.76006 15.5537 7.86994 15.6272 7.99092 15.6774C8.11189 15.7276 8.24157 15.7534 8.37254 15.7534C8.50351 15.7534 8.63319 15.7276 8.75417 15.6774C8.87514 15.6272 8.98503 15.5537 9.07754 15.461L12.9575 11.581L16.8375 15.461C17.0245 15.648 17.2781 15.753 17.5425 15.753C17.807 15.753 18.0606 15.648 18.2475 15.461C18.4345 15.274 18.5396 15.0204 18.5396 14.756C18.5396 14.4915 18.4345 14.238 18.2475 14.051L13.6575 9.46097C13.565 9.36827 13.4551 9.29472 13.3342 9.24454C13.2132 9.19436 13.0835 9.16853 12.9525 9.16853C12.8216 9.16853 12.6919 9.19436 12.5709 9.24454C12.4499 9.29472 12.3401 9.36827 12.2475 9.46097L7.65754 14.051C7.27754 14.431 7.27754 15.071 7.66754 15.461Z"
+                        fill="#4F4F4F"
+                      />
+                    </svg>
+                  </span>
+                  <p class="text-sm text-gray-400 border-t-2 mt-2 hidden">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Suscipit hic molestias sint totam quam incidunt pariatur
+                    iste repudiandae ab quisquam?
+                  </p>
+                </li>
+              </ul>
+            </section>
+            <!-- End FAQ Section -->
+          </div>
+          <aside class="main-aside">
+            <section>
+              <div
+                class="
+                  bg-blue-500
+                  rounded-lg
+                  p-5
+                  bg-no-repeat bg-contains bg-right-bottom
+                "
+                style="background-image: url('./img/bg-side-right.svg')"
+              >
+                <span
+                  class="text-sm text-blue-600 bg-white py-1 px-3 rounded-xl"
+                  >NEW</span
+                >
+                <h2 class="text-xl font-bold text-white mt-5 mb-2">
+                  We have added new invoicing templates!
+                </h2>
+                <p class="text-sm text-white mb-5">
+                  New templates focused on helping you improving your business
+                </p>
+                <button
+                  class="bg-white text-sm font-medium py-2 px-5 rounded-lg"
+                >
+                  Download Now
+                </button>
+              </div>
+            </section>
+            <!-- News -->
+            <section class="mt-16">
+              <div class="container">
+                <h1 class="text-xl font-bold text-gray-700 mb-5">News</h1>
+                <ul>
+                  <li class="mb-4">
+                    <a href="#">
+                      <h3 class="text-lg font-bold text-gray-700">
+                        Myanmar's military seizes control of country over ...
+                      </h3>
+                      <div class="flex justify-between items-center">
+                        <span
+                          class="
+                            text-sm
+                            bg-blue-400 bg-opacity-40
+                            text-blue-500
+                            px-1
+                            rounded-md
+                          "
+                          >CNN News</span
+                        >
+                        <span class="flex items-center gap-2"
+                          ><svg
+                            width="13"
+                            height="13"
+                            viewBox="0 0 13 13"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <g clip-path="url(#clip0_50_265)">
+                              <path
+                                d="M6.54102 11.4253C5.50267 11.4253 4.48763 11.1174 3.62427 10.5405C2.76092 9.96363 2.08801 9.1437 1.69065 8.18438C1.29329 7.22507 1.18932 6.16947 1.3919 5.15107C1.59447 4.13267 2.09448 3.19721 2.82871 2.46298C3.56293 1.72876 4.49839 1.22875 5.51679 1.02617C6.53519 0.8236 7.59079 0.927568 8.55011 1.32493C9.50942 1.72229 10.3294 2.39519 10.9062 3.25855C11.4831 4.12191 11.791 5.13694 11.791 6.1753C11.791 7.56768 11.2379 8.90304 10.2533 9.88761C9.26876 10.8722 7.9334 11.4253 6.54102 11.4253ZM6.54102 1.6753C5.651 1.6753 4.78097 1.93922 4.04095 2.43368C3.30093 2.92815 2.72415 3.63095 2.38356 4.45322C2.04297 5.27549 1.95385 6.18029 2.12748 7.0532C2.30112 7.92612 2.7297 8.72794 3.35904 9.35728C3.98837 9.98661 4.7902 10.4152 5.66311 10.5888C6.53603 10.7625 7.44083 10.6733 8.26309 10.3328C9.08536 9.99216 9.78816 9.41538 10.2826 8.67536C10.7771 7.93534 11.041 7.06531 11.041 6.1753C11.041 4.98182 10.5669 3.83723 9.723 2.99331C8.87908 2.1494 7.73449 1.6753 6.54102 1.6753Z"
+                                fill="#4F4F4F"
+                              />
+                              <path
+                                d="M8.26227 8.42529L6.16602 6.32904V2.80029H6.91602V6.01779L8.79102 7.89654L8.26227 8.42529Z"
+                                fill="#4F4F4F"
+                              />
+                            </g>
+                            <defs>
+                              <clipPath id="clip0_50_265">
+                                <rect
+                                  width="12"
+                                  height="12"
+                                  fill="white"
+                                  transform="translate(0.541016 0.175293)"
+                                />
+                              </clipPath>
+                            </defs>
+                          </svg>
+                          <span class="text-sm text-gray-500"
+                            >2:00 pm</span
+                          ></span
+                        >
+                      </div>
+                    </a>
+                  </li>
+                  <li class="mb-4">
+                    <a href="#">
+                      <h3 class="text-lg font-bold text-gray-700">
+                        Myanmar's military seizes control of country over ...
+                      </h3>
+                      <div class="flex justify-between items-center">
+                        <span
+                          class="
+                            text-sm
+                            bg-blue-400 bg-opacity-40
+                            text-blue-500
+                            px-1
+                            rounded-md
+                          "
+                          >CNN News</span
+                        >
+                        <span class="flex items-center gap-2"
+                          ><svg
+                            width="13"
+                            height="13"
+                            viewBox="0 0 13 13"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <g clip-path="url(#clip0_50_265)">
+                              <path
+                                d="M6.54102 11.4253C5.50267 11.4253 4.48763 11.1174 3.62427 10.5405C2.76092 9.96363 2.08801 9.1437 1.69065 8.18438C1.29329 7.22507 1.18932 6.16947 1.3919 5.15107C1.59447 4.13267 2.09448 3.19721 2.82871 2.46298C3.56293 1.72876 4.49839 1.22875 5.51679 1.02617C6.53519 0.8236 7.59079 0.927568 8.55011 1.32493C9.50942 1.72229 10.3294 2.39519 10.9062 3.25855C11.4831 4.12191 11.791 5.13694 11.791 6.1753C11.791 7.56768 11.2379 8.90304 10.2533 9.88761C9.26876 10.8722 7.9334 11.4253 6.54102 11.4253ZM6.54102 1.6753C5.651 1.6753 4.78097 1.93922 4.04095 2.43368C3.30093 2.92815 2.72415 3.63095 2.38356 4.45322C2.04297 5.27549 1.95385 6.18029 2.12748 7.0532C2.30112 7.92612 2.7297 8.72794 3.35904 9.35728C3.98837 9.98661 4.7902 10.4152 5.66311 10.5888C6.53603 10.7625 7.44083 10.6733 8.26309 10.3328C9.08536 9.99216 9.78816 9.41538 10.2826 8.67536C10.7771 7.93534 11.041 7.06531 11.041 6.1753C11.041 4.98182 10.5669 3.83723 9.723 2.99331C8.87908 2.1494 7.73449 1.6753 6.54102 1.6753Z"
+                                fill="#4F4F4F"
+                              />
+                              <path
+                                d="M8.26227 8.42529L6.16602 6.32904V2.80029H6.91602V6.01779L8.79102 7.89654L8.26227 8.42529Z"
+                                fill="#4F4F4F"
+                              />
+                            </g>
+                            <defs>
+                              <clipPath id="clip0_50_265">
+                                <rect
+                                  width="12"
+                                  height="12"
+                                  fill="white"
+                                  transform="translate(0.541016 0.175293)"
+                                />
+                              </clipPath>
+                            </defs>
+                          </svg>
+                          <span class="text-sm text-gray-500"
+                            >2:00 pm</span
+                          ></span
+                        >
+                      </div>
+                    </a>
+                  </li>
+                  <li class="mb-4">
+                    <a href="#">
+                      <h3 class="text-lg font-bold text-gray-700">
+                        Myanmar's military seizes control of country over ...
+                      </h3>
+                      <div class="flex justify-between items-center">
+                        <span
+                          class="
+                            text-sm
+                            bg-blue-400 bg-opacity-40
+                            text-blue-500
+                            px-1
+                            rounded-md
+                          "
+                          >CNN News</span
+                        >
+                        <span class="flex items-center gap-2"
+                          ><svg
+                            width="13"
+                            height="13"
+                            viewBox="0 0 13 13"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <g clip-path="url(#clip0_50_265)">
+                              <path
+                                d="M6.54102 11.4253C5.50267 11.4253 4.48763 11.1174 3.62427 10.5405C2.76092 9.96363 2.08801 9.1437 1.69065 8.18438C1.29329 7.22507 1.18932 6.16947 1.3919 5.15107C1.59447 4.13267 2.09448 3.19721 2.82871 2.46298C3.56293 1.72876 4.49839 1.22875 5.51679 1.02617C6.53519 0.8236 7.59079 0.927568 8.55011 1.32493C9.50942 1.72229 10.3294 2.39519 10.9062 3.25855C11.4831 4.12191 11.791 5.13694 11.791 6.1753C11.791 7.56768 11.2379 8.90304 10.2533 9.88761C9.26876 10.8722 7.9334 11.4253 6.54102 11.4253ZM6.54102 1.6753C5.651 1.6753 4.78097 1.93922 4.04095 2.43368C3.30093 2.92815 2.72415 3.63095 2.38356 4.45322C2.04297 5.27549 1.95385 6.18029 2.12748 7.0532C2.30112 7.92612 2.7297 8.72794 3.35904 9.35728C3.98837 9.98661 4.7902 10.4152 5.66311 10.5888C6.53603 10.7625 7.44083 10.6733 8.26309 10.3328C9.08536 9.99216 9.78816 9.41538 10.2826 8.67536C10.7771 7.93534 11.041 7.06531 11.041 6.1753C11.041 4.98182 10.5669 3.83723 9.723 2.99331C8.87908 2.1494 7.73449 1.6753 6.54102 1.6753Z"
+                                fill="#4F4F4F"
+                              />
+                              <path
+                                d="M8.26227 8.42529L6.16602 6.32904V2.80029H6.91602V6.01779L8.79102 7.89654L8.26227 8.42529Z"
+                                fill="#4F4F4F"
+                              />
+                            </g>
+                            <defs>
+                              <clipPath id="clip0_50_265">
+                                <rect
+                                  width="12"
+                                  height="12"
+                                  fill="white"
+                                  transform="translate(0.541016 0.175293)"
+                                />
+                              </clipPath>
+                            </defs>
+                          </svg>
+                          <span class="text-sm text-gray-500"
+                            >2:00 pm</span
+                          ></span
+                        >
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+                <button class="mt-5 text-blue-600">See All News</button>
+              </div>
+            </section>
+            <!-- End News -->
+          </aside>
+        </div>
+      </main>
+    </div>
+    <!-- <script src="js/circle.js"></script> -->
+  </body>
+</html>
